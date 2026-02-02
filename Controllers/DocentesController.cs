@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SistemaUniversitario.Data;
-using SistemaUniversitario.Models;
-
+using SistemaAcademico.Data;
+using SistemaAcademico.Models;
 namespace SistemaAcademico.Controllers
 {
     public class DocentesController : Controller

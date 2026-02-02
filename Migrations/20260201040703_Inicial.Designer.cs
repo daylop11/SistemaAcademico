@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using SistemaUniversitario.Data;
+using SistemaAcademico.Data;
 
 #nullable disable
 

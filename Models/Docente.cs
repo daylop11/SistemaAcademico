@@ -1,22 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace SistemaUniversitario.Models
-{
-    public class Docente
+namespace SistemaAcademico.Models
     {
-        [Key]
-        public int DocenteId { get; set; }
+        public class Docente
+        {
+            [Key]
+            public int DocenteId { get; set; }
 
-        [Required(ErrorMessage = "El nombre es obligatorio")]
-        [StringLength(100)]
-        public string Nombre { get; set; }
+            [Required]
+            public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "El correo es obligatorio")]
-        [EmailAddress]
-        public string Correo { get; set; }
-
-        [StringLength(15)]
-        [Phone]
-        public string Telefono { get; set; }
+            // Relación inversa
+            public ICollection<Curso> Cursos { get; set; }
+        }
     }
-}

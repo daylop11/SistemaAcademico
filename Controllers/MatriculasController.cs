@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using SistemaAcademico.Data;
 using SistemaAcademico.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SistemaUniversitario.Models;
-using SistemaUniversitario.Data;
 
 namespace SistemaAcademico.Controllers
 {

@@ -1,28 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace SistemaUniversitario.Models
+namespace SistemaAcademico.Models
 {
     public class Matricula
     {
         [Key]
         public int MatriculaId { get; set; }
 
+        // Clave foránea a Estudiante
         [Required]
         public int EstudianteId { get; set; }
-
-        [ForeignKey("EstudianteId")]
         public Estudiante Estudiante { get; set; }
 
+        // Clave foránea a Curso
         [Required]
         public int CursoId { get; set; }
-
-        [ForeignKey("CursoId")]
         public Curso Curso { get; set; }
 
+        // Fecha de matrícula
         [Required]
-        public int PeriodoId { get; set; }
-
         public DateTime FechaMatricula { get; set; } = DateTime.Now;
+
+        // Relación con calificaciones
+        public ICollection<Calificacion> Calificaciones { get; set; } = new List<Calificacion>();
     }
 }

@@ -1,22 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace SistemaUniversitario.Models
+namespace SistemaAcademico.Models
 {
     public class Estudiante
     {
         [Key]
         public int EstudianteId { get; set; }
 
-        [Required(ErrorMessage = "El nombre es obligatorio")]
-        [StringLength(100)]
+        [Required]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "El correo es obligatorio")]
-        [EmailAddress]
-        public string Correo { get; set; }
+        public ICollection<Matricula> Matriculas { get; set; } = new List<Matricula>();
 
-        [StringLength(15)]
-        [Phone]
-        public string Telefono { get; set; }
+        public ICollection<Calificacion> Calificaciones { get; set; } = new List<Calificacion>();
     }
 }

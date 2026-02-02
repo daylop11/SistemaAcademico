@@ -1,45 +1,57 @@
-﻿<div class="welcome">Administra todas las calificaciones y evaluaciones</div>
-<div class="flex-container">
-    <a asp-action="Create" class="btn btn-success">Agregar Nueva Calificación</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al Panel</a>
-</div>
-@model IEnumerable<SistemaAcademico.Models.Calificacion>
+﻿@model IEnumerable<SistemaAcademico.Models.Calificacion>
 @{
     ViewData["Title"] = "Calificaciones";
 }
 
-<h2 class="text-center mb-3">Asignar y editar calificaciones de los estudiantes</h2>
+<!-- Mensaje de bienvenida -->
+<div class="text-center mb-4">
+    <h2>Bienvenido al módulo de Calificaciones</h2>
+    <p>Registra y administra calificaciones de estudiantes fácilmente.</p>
+</div>
 
-<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-    <a asp-action="Create" class="btn btn-success btn-lg">Crear Nueva Calificación</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">Volver al Panel</a>
+<!-- Botones grandes -->
+<div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+    <a asp-action="Create" class="btn btn-primary btn-lg shadow btn-hover">Nueva Calificación</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg shadow btn-hover">Volver al Panel</a>
 </div>
 
 <hr />
 
-<table class="table table-striped mt-3">
+<!-- Tabla con los datos -->
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
             <th>Estudiante</th>
             <th>Curso</th>
-            <th>Nota</th>
+            <th>Valor</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var cal in Model)
+        @foreach (var c in Model)
         {
             <tr>
-                <td>@cal.CalificacionId</td>
-                <td>@cal.Estudiante?.Nombre</td>
-                <td>@cal.Curso?.Nombre</td>
-                <td>@cal.Nota</td>
+                <td>@c.CalificacionId</td>
+                <td>@c.Estudiante?.Nombre</td>
+                <td>@c.Curso?.Nombre</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@cal.CalificacionId" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@cal.CalificacionId" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@c.CalificacionId" class="btn btn-warning btn-sm shadow btn-hover">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@c.CalificacionId" class="btn btn-danger btn-sm shadow btn-hover">Eliminar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<!-- Estilo hover y sombra para botones (si no está en site.css) -->
+<style>
+    .btn-hover {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+</style>

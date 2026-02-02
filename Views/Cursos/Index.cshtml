@@ -1,45 +1,58 @@
-﻿<div class="welcome">Gestiona todos los cursos y asigna docentes</div>
-
-<div class="flex-container">
-    <a asp-action="Create" class="btn btn-success">Crear Nuevo Curso</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al Panel</a>
-</div>
-
-@model IEnumerable<SistemaAcademico.Models.Curso>
+﻿@model IEnumerable<SistemaAcademico.Models.Curso>
 @{
     ViewData["Title"] = "Cursos";
 }
 
-<h2 class="text-center mb-3">Gestiona todos los cursos y asigna docentes</h2>
+<!-- Mensaje de bienvenida -->
+<div class="text-center mb-4">
+    <h2>Bienvenido al módulo de Cursos</h2>
+    <p>Gestiona todos los cursos disponibles y añade nuevos cursos fácilmente.</p>
+</div>
 
-<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-    <a asp-action="Create" class="btn btn-success btn-lg">Crear Nuevo Curso</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">Volver al Panel</a>
+<!-- Botones grandes -->
+<div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+    <a asp-action="Create" class="btn btn-primary btn-lg shadow btn-hover">Nuevo Curso</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg shadow btn-hover">Volver al Panel</a>
 </div>
 
 <hr />
 
-<table class="table table-striped mt-3">
+<!-- Tabla de datos -->
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
-            <th>Nombre del Curso</th>
-            <th>Docente</th>
+            <th>Nombre</th>
+            <th>Créditos</th>
+            <th>Descripción</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var curso in Model)
+        @foreach (var c in Model)
         {
             <tr>
-                <td>@curso.CursoId</td>
-                <td>@curso.Nombre</td>
-                <td>@curso.Docente?.Nombre</td>
+                <td>@c.CursoId</td>
+                <td>@c.Nombre</td>
+                <td>@c.Creditos</td>
+                <td>@c.Descripcion</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@curso.CursoId" class="btn btn-warning btn-sm">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@curso.CursoId" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@c.CursoId" class="btn btn-warning btn-sm shadow btn-hover">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@c.CursoId" class="btn btn-danger btn-sm shadow btn-hover">Eliminar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<!-- Estilo hover y sombra para botones (si no está en site.css) -->
+<style>
+    .btn-hover {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+</style>

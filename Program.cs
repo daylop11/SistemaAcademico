@@ -1,27 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using SistemaAcademico.Data;
-using SistemaUniversitario.Data;
-
 var builder = WebApplication.CreateBuilder(args);
 
+// ¡Esto es clave para que funcione MVC!
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
 
 var app = builder.Build();
-
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
 
 app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-);
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

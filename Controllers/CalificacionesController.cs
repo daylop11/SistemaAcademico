@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
 using SistemaAcademico.Data;
 using SistemaAcademico.Models;
-using SistemaUniversitario.Data;
-
 
 namespace SistemaAcademico.Controllers
 {

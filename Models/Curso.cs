@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
-namespace SistemaUniversitario.Models
+namespace SistemaAcademico.Models
 {
     public class Curso
     {
@@ -17,5 +18,13 @@ namespace SistemaUniversitario.Models
 
         [StringLength(200)]
         public string Descripcion { get; set; }
+
+        [Required]
+        public int DocenteId { get; set; }
+        public Docente Docente { get; set; }
+
+        public ICollection<Matricula> Matriculas { get; set; } = new List<Matricula>();
+
+        public ICollection<Calificacion> Calificaciones { get; set; } = new List<Calificacion>();
     }
 }

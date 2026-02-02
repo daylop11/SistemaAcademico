@@ -1,13 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Sistema Académico";
+    ViewData["Title"] = "Panel Principal";
 }
 
-<h1 class="text-center mb-4">Sistema Académico</h1>
-
-<div class="flex-container">
-    <a asp-controller="Cursos" asp-action="Index" class="btn btn-lg">Cursos</a>
-    <a asp-controller="Docentes" asp-action="Index" class="btn btn-lg">Docentes</a>
-    <a asp-controller="Estudiantes" asp-action="Index" class="btn btn-lg">Estudiantes</a>
-    <a asp-controller="Calificaciones" asp-action="Index" class="btn btn-lg">Calificaciones</a>
-    <a asp-controller="Matriculas" asp-action="Index" class="btn btn-lg">Matrículas</a>
+<div class="text-center mb-5">
+    <h1>¡Bienvenido! Gestiona todos los módulos del sistema académico</h1>
 </div>
+
+<div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+    <a asp-controller="Curso" asp-action="Index" class="btn btn-primary btn-lg shadow btn-hover">Cursos</a>
+    <a asp-controller="Docente" asp-action="Index" class="btn btn-success btn-lg shadow btn-hover">Docentes</a>
+    <a asp-controller="Estudiante" asp-action="Index" class="btn btn-warning btn-lg shadow btn-hover">Estudiantes</a>
+    <a asp-controller="Calificaciones" asp-action="Index" class="btn btn-info btn-lg shadow btn-hover">Calificaciones</a>
+    <a asp-controller="Matriculas" asp-action="Index" class="btn btn-danger btn-lg shadow btn-hover">Matrículas</a>
+</div>
+
+<p class="text-center text-muted">Selecciona un módulo para comenzar a administrar tu sistema académico</p>
+
+<style>
+    .btn-hover {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+</style>

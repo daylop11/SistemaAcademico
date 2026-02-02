@@ -2,7 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using SistemaUniversitario.Data;
+using SistemaAcademico.Data;
+
 
 #nullable disable
 

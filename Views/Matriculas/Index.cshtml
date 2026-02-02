@@ -1,23 +1,24 @@
-﻿<div class="welcome">Gestiona las matrículas y cursos inscritos</div>
-<div class="flex-container">
-    <a asp-action="Create" class="btn btn-success">Nueva Matrícula</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al Panel</a>
-</div>
-@model IEnumerable<SistemaAcademico.Models.Matricula>
+﻿@model IEnumerable<SistemaAcademico.Models.Matricula>
 @{
     ViewData["Title"] = "Matrículas";
 }
 
-<h2 class="text-center mb-3">Registrar y administrar matrículas de estudiantes</h2>
+<!-- Mensaje de bienvenida -->
+<div class="text-center mb-4">
+    <h2>Bienvenido al módulo de Matrículas</h2>
+    <p>Registra y administra matrículas de estudiantes fácilmente.</p>
+</div>
 
-<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
-    <a asp-action="Create" class="btn btn-success btn-lg">Nueva Matrícula</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">Volver al Panel</a>
+<!-- Botones grandes -->
+<div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+    <a asp-action="Create" class="btn btn-primary btn-lg shadow btn-hover">Nueva Matrícula</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg shadow btn-hover">Volver al Panel</a>
 </div>
 
 <hr />
 
-<table class="table table-striped mt-3">
+<!-- Tabla de datos -->
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -36,9 +37,22 @@
                 <td>@m.Curso?.Nombre</td>
                 <td>@m.FechaMatricula.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@m.MatriculaId" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@m.MatriculaId" class="btn btn-warning btn-sm shadow btn-hover">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@m.MatriculaId" class="btn btn-danger btn-sm shadow btn-hover">Eliminar</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<!-- Estilo hover y sombra para botones (si no está en site.css) -->
+<style>
+    .btn-hover {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+</style>
