@@ -1,0 +1,18 @@
+﻿@model SistemaAcademico.Models.Calificacion
+
+@{
+    ViewData["Title"] = "Detalles Calificación";
+}
+
+<h1>Detalles de la Calificación</h1>
+
+<div>
+    <p><strong>Estudiante:</strong> @Model.Estudiante?.Nombre</p>
+    <p><strong>Curso:</strong> @Model.Curso?.Nombre</p>
+    <p><strong>Nota:</strong> @Model.Nota</p>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.CalificacionId" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+</p>

@@ -1,0 +1,20 @@
+﻿@model SistemaAcademico.Models.Curso
+
+@{
+    ViewData["Title"] = "Eliminar Curso";
+}
+
+<h1>Eliminar Curso</h1>
+
+<h3>¿Seguro que deseas eliminar este curso?</h3>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Nombre</p>
+    <p><strong>Docente:</strong> @Model.Docente?.Nombre</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CursoId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

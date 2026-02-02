@@ -1,0 +1,119 @@
+/* --- Botones principales del Dashboard --- */
+.btn-lg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 200px;
+    height: 120px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* gama azul */
+    color: white;
+    text-align: center;
+}
+
+    .btn-lg:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+/* --- Botones CRUD (Crear, Editar, Eliminar, Volver) --- */
+.btn-success {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+    .btn-success:hover {
+        background-color: #21867a;
+    }
+
+.btn-warning {
+    background-color: #f4a261;
+    color: white;
+}
+
+    .btn-warning:hover {
+        background-color: #e07b36;
+    }
+
+.btn-danger {
+    background-color: #e76f51;
+    color: white;
+}
+
+    .btn-danger:hover {
+        background-color: #d0553b;
+    }
+
+.btn-secondary {
+    background-color: #264653;
+    color: white;
+}
+
+    .btn-secondary:hover {
+        background-color: #1b3340;
+    }
+
+/* --- Tablas --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #1e3c72;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+
+tr:hover {
+    background-color: #d0e2f2;
+}
+
+/* --- Encabezados --- */
+h1, h2 {
+    text-align: center;
+    color: #0d3b66;
+}
+
+/* --- Formularios --- */
+input.form-control, select.form-select {
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+    input.form-control:focus, select.form-select:focus {
+        border-color: #1e3c72;
+        box-shadow: 0 0 5px rgba(30,60,114,0.5);
+        outline: none;
+    }
+
+/* --- Contenedores flexibles --- */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* --- Mensajes de bienvenida --- */
+.welcome {
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #264653;
+}

@@ -1,0 +1,22 @@
+﻿@model SistemaAcademico.Models.Curso
+<h2>Editar Curso</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CursoId" />
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Docente</label>
+        <select asp-for="DocenteId" class="form-select" asp-items="@(new SelectList(ViewBag.Docentes, "DocenteId", "Nombre"))">
+            <option value="">-- Seleccionar Docente --</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

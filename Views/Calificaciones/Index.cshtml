@@ -1,0 +1,45 @@
+﻿<div class="welcome">Administra todas las calificaciones y evaluaciones</div>
+<div class="flex-container">
+    <a asp-action="Create" class="btn btn-success">Agregar Nueva Calificación</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al Panel</a>
+</div>
+@model IEnumerable<SistemaAcademico.Models.Calificacion>
+@{
+    ViewData["Title"] = "Calificaciones";
+}
+
+<h2 class="text-center mb-3">Asignar y editar calificaciones de los estudiantes</h2>
+
+<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+    <a asp-action="Create" class="btn btn-success btn-lg">Crear Nueva Calificación</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">Volver al Panel</a>
+</div>
+
+<hr />
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Estudiante</th>
+            <th>Curso</th>
+            <th>Nota</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cal in Model)
+        {
+            <tr>
+                <td>@cal.CalificacionId</td>
+                <td>@cal.Estudiante?.Nombre</td>
+                <td>@cal.Curso?.Nombre</td>
+                <td>@cal.Nota</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cal.CalificacionId" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@cal.CalificacionId" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+﻿@model SistemaAcademico.Models.Calificacion
+
+@{
+    ViewData["Title"] = "Eliminar Calificación";
+}
+
+<h1>Eliminar Calificación</h1>
+
+<h3>¿Seguro que deseas eliminar esta calificación?</h3>
+
+<div>
+    <p><strong>Estudiante:</strong> @Model.Estudiante?.Nombre</p>
+    <p><strong>Curso:</strong> @Model.Curso?.Nombre</p>
+    <p><strong>Nota:</strong> @Model.Nota</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CalificacionId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

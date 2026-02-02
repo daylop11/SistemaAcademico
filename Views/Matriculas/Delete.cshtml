@@ -1,0 +1,20 @@
+﻿@model SistemaAcademico.Models.Matricula
+
+@{
+    ViewData["Title"] = "Eliminar Matrícula";
+}
+
+<h1>Eliminar Matrícula</h1>
+
+<h3>¿Seguro que deseas eliminar esta matrícula?</h3>
+
+<div>
+    <p><strong>Estudiante:</strong> @Model.Estudiante?.Nombre</p>
+    <p><strong>Curso:</strong> @Model.Curso?.Nombre</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="MatriculaId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

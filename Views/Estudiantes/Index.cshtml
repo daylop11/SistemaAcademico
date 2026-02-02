@@ -1,0 +1,41 @@
+﻿<div class="welcome">Administra los estudiantes y sus datos</div>
+<div class="flex-container">
+    <a asp-action="Create" class="btn btn-success">Registrar Nuevo Estudiante</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Volver al Panel</a>
+</div>
+@model IEnumerable<SistemaAcademico.Models.Estudiante>
+@{
+    ViewData["Title"] = "Estudiantes";
+}
+
+<h2 class="text-center mb-3">Gestiona los estudiantes inscritos</h2>
+
+<div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+    <a asp-action="Create" class="btn btn-success btn-lg">Crear Nuevo Estudiante</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">Volver al Panel</a>
+</div>
+
+<hr />
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var est in Model)
+        {
+            <tr>
+                <td>@est.EstudianteId</td>
+                <td>@est.Nombre</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@est.EstudianteId" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@est.EstudianteId" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@model SistemaAcademico.Models.Calificacion
+<h2>Editar Calificación</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CalificacionId" />
+
+    <div class="mb-3">
+        <label>Estudiante</label>
+        <select asp-for="EstudianteId" class="form-select" asp-items="@(ViewBag.Estudientes)"></select>
+    </div>
+
+    <div class="mb-3">
+        <label>Curso</label>
+        <select asp-for="CursoId" class="form-select" asp-items="@(ViewBag.Cursos)"></select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Nota" class="form-label"></label>
+        <input asp-for="Nota" class="form-control" />
+        <span asp-validation-for="Nota" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

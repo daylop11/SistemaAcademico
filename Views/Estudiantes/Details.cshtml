@@ -1,0 +1,16 @@
+﻿@model SistemaAcademico.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Detalles Estudiante";
+}
+
+<h1>Detalles del Estudiante</h1>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Nombre</p>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.EstudianteId" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+</p>

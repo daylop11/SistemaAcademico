@@ -1,0 +1,15 @@
+﻿@model SistemaAcademico.Models.Docente
+<h2>Editar Docente</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="DocenteId" />
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
